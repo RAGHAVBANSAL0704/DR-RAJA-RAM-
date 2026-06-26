@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Raja Ram Aggarawal — Scholar, Author & Educator</title>
+<meta name="description" content="Official website of Dr. Raja Ram Aggarawal, Associate Professor at Government College Bhattu Kalan. Freely accessible scholarly books on history, education, political science, and more.">
+<meta name="keywords" content="Dr. Raja Ram Aggarawal, author, scholar, professor, books, history, education, political science, India, Bhattu Kalan">
+<meta property="og:title" content="Dr. Raja Ram Aggarawal — Scholar, Author & Educator">
+<meta property="og:description" content="Freely accessible scholarly books on history, education, political science, religion and more.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* HERO */
+.hero {
+  min-height: calc(100vh - var(--nav-height));
+  display: flex; align-items: center;
+  background: linear-gradient(135deg, #ffffff 0%, #eef3fc 45%, #eaf5ee 100%);
+  padding: 72px 0 64px; position: relative; overflow: hidden;
+}
+.hero::after {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg width='800' height='700' viewBox='0 0 800 700' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='520' y='40' width='110' height='148' rx='4' fill='%232563a8' fill-opacity='0.05'/%3E%3Crect x='530' y='50' width='110' height='148' rx='4' fill='%23b8860b' fill-opacity='0.04'/%3E%3Crect x='660' y='20' width='90' height='125' rx='4' fill='%231a5c3a' fill-opacity='0.05'/%3E%3Crect x='420' y='220' width='120' height='160' rx='4' fill='%232563a8' fill-opacity='0.04'/%3E%3Crect x='560' y='200' width='100' height='140' rx='4' fill='%23b8860b' fill-opacity='0.05'/%3E%3Crect x='680' y='180' width='85' height='118' rx='4' fill='%231a5c3a' fill-opacity='0.04'/%3E%3Ccircle cx='720' cy='400' r='90' fill='%232563a8' fill-opacity='0.03'/%3E%3Ccircle cx='480' cy='580' r='70' fill='%23b8860b' fill-opacity='0.04'/%3E%3C/svg%3E") no-repeat right center / contain;
+  opacity: 0.7;
+}
+.hero-inner {
+  max-width: var(--max-width); margin: 0 auto; padding: 0 28px;
+  display: grid; grid-template-columns: 1fr 380px; gap: 72px;
+  align-items: center; position: relative; z-index: 1;
+}
+.hero-eyebrow {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--blue); margin-bottom: 20px;
+}
+.hero-eyebrow::before { content:''; display:block; width:32px; height:2px; background:var(--gold); border-radius:2px; }
+.hero-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(38px, 5.5vw, 68px); font-weight: 700;
+  color: var(--navy); line-height: 1.08; margin-bottom: 14px;
+}
+.hero-designation { font-size: 19px; color: var(--text-secondary); margin-bottom: 6px; }
+.hero-college { font-size: 16px; color: var(--green); font-weight: 500; margin-bottom: 36px; }
+.hero-quote {
+  font-family: 'Lora', serif; font-size: 20px; font-style: italic;
+  color: var(--navy-mid); padding-left: 20px;
+  border-left: 3px solid var(--gold);
+  line-height: 1.65; margin-bottom: 44px;
+}
+.hero-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 52px; }
+.hero-stats {
+  display: flex; gap: 40px; flex-wrap: wrap;
+  padding-top: 36px; border-top: 1px solid var(--border);
+}
+.hero-stat { text-align: center; }
+
+/* PORTRAIT */
+.portrait-card {
+  background: var(--white); border-radius: var(--radius-xl);
+  border: 1px solid var(--border); padding: 36px 28px 28px;
+  box-shadow: var(--shadow-xl); text-align: center;
+  position: relative;
+}
+.portrait-card::before {
+  content: ''; position: absolute; top: -1px; left: 40px; right: 40px; height: 3px;
+  background: linear-gradient(90deg, var(--blue), var(--gold), var(--green));
+  border-radius: 0 0 4px 4px;
+}
+.portrait-avatar {
+  width: 160px; height: 160px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue-light), #d0e4f8);
+  margin: 0 auto 20px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 700; color: var(--blue);
+  border: 4px solid white; box-shadow: var(--shadow-md);
+}
+.portrait-name { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+.portrait-role { font-size: 14px; color: var(--text-secondary); margin-bottom: 4px; }
+.portrait-college { font-size: 13px; color: var(--green); font-weight: 500; margin-bottom: 22px; }
+.portrait-divider { height: 1px; background: var(--border); margin: 0 0 20px; }
+.portrait-tags { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-bottom: 22px; }
+.portrait-cta { display: block; text-align: center; padding: 10px; border-radius: var(--radius-sm); background: var(--blue-light); color: var(--blue); text-decoration: none; font-size: 14px; font-weight: 500; transition: all var(--transition); }
+.portrait-cta:hover { background: var(--blue); color: white; }
+
+/* FEATURED STRIP */
+.featured-strip { background: var(--navy); padding: 20px 0; overflow: hidden; }
+.strip-inner { max-width: var(--max-width); margin: 0 auto; padding: 0 28px; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+.strip-label { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); white-space: nowrap; }
+.strip-items { display: flex; gap: 28px; flex-wrap: wrap; }
+.strip-item { font-size: 14px; color: rgba(255,255,255,0.7); display: flex; align-items: center; gap: 8px; }
+.strip-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--gold); }
+
+/* ABOUT PREVIEW */
+.about-preview-img {
+  background: linear-gradient(135deg, var(--blue-light), var(--green-light));
+  border-radius: var(--radius-xl); padding: 40px;
+  display: flex; align-items: center; justify-content: center; min-height: 360px;
+  border: 1px solid var(--border);
+}
+.about-monogram {
+  font-family: 'Playfair Display', serif; font-size: 96px; font-weight: 700;
+  color: var(--blue); opacity: 0.3; user-select: none;
+}
+
+/* BOOK GRID PREVIEW */
+.books-preview-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 32px; flex-wrap: wrap; gap: 16px; }
+
+/* CATEGORIES STRIP */
+.cat-strip { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+
+/* QUOTE BANNER */
+.quote-banner {
+  background: var(--navy); padding: 64px 0; text-align: center;
+}
+.quote-banner blockquote {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(22px, 3.5vw, 36px); font-style: italic;
+  color: white; max-width: 760px; margin: 0 auto;
+  line-height: 1.5; padding: 0 28px;
+}
+.quote-banner cite { display: block; font-size: 15px; font-style: normal; color: var(--gold); margin-top: 20px; font-family: 'Inter', sans-serif; font-weight: 500; }
+
+/* CONTRIBUTION */
+.contrib-section { background: linear-gradient(135deg, var(--navy) 0%, #1e3060 100%); padding: 72px 0; color: white; }
+.contrib-inner { max-width: 700px; margin: 0 auto; text-align: center; padding: 0 28px; }
+.contrib-inner h2 { font-family: 'Playfair Display', serif; font-size: 34px; margin-bottom: 16px; }
+.contrib-inner p { font-size: 16px; color: rgba(255,255,255,0.75); line-height: 1.8; margin-bottom: 36px; }
+.contrib-methods { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 24px; }
+.contrib-pill { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18); border-radius: var(--radius); padding: 16px 24px; text-align: center; min-width: 120px; }
+.contrib-pill-icon { font-size: 26px; margin-bottom: 6px; }
+.contrib-pill-label { font-size: 13px; color: rgba(255,255,255,0.85); font-weight: 500; }
+.contrib-note { font-size: 13px; color: rgba(255,255,255,0.45); font-style: italic; }
+
+@media(max-width:860px){
+  .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+  .hero-portrait { order: -1; }
+  .portrait-card { max-width: 320px; margin: 0 auto; }
+  .hero-stats { gap: 24px; }
+}
+@media(max-width:580px){ .hero-btns { flex-direction: column; } }
+</style>
+</head>
+<body>
+
+<script src="js/main.js"></script>
+<script>document.write(renderRootNav('home'));</script>
+
+<main>
+<!-- HERO -->
+<section class="hero" aria-label="Introduction">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <p class="hero-eyebrow">Associate Professor · Scholar · Author</p>
+      <h1 class="hero-name">Dr. Raja Ram<br>Aggarawal</h1>
+      <p class="hero-designation">Associate Professor</p>
+      <p class="hero-college">Government College, Bhattu Kalan, Haryana, India</p>
+      <blockquote class="hero-quote">"Knowledge grows when it is shared freely with the world."</blockquote>
+      <div class="hero-btns">
+        <a href="books.html" class="btn btn-primary btn-lg">📚 Explore Books</a>
+        <a href="library.html" class="btn btn-secondary btn-lg">🔍 Digital Library</a>
+        <a href="about.html" class="btn btn-gold btn-lg">👤 About the Author</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="stat-num">30+</span>
+          <span class="stat-label">Publications</span>
+        </div>
+        <div class="hero-stat">
+          <span class="stat-num">25+</span>
+          <span class="stat-label">Years Teaching</span>
+        </div>
+        <div class="hero-stat">
+          <span class="stat-num">7</span>
+          <span class="stat-label">Subject Areas</span>
+        </div>
+        <div class="hero-stat">
+          <span class="stat-num">Free</span>
+          <span class="stat-label">For Everyone</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-portrait">
+      <div class="portrait-card">
+        <div class="portrait-avatar">RRA</div>
+        <p class="portrait-name">Dr. Raja Ram Aggarawal</p>
+        <p class="portrait-role">Associate Professor</p>
+        <p class="portrait-college">Govt. College, Bhattu Kalan</p>
+        <div class="portrait-divider"></div>
+        <div class="portrait-tags">
+          <span class="tag">History</span>
+          <span class="tag tag-green">Education</span>
+          <span class="tag tag-gold">Political Science</span>
+          <span class="tag">Philosophy</span>
+          <span class="tag tag-green">Self Help</span>
+        </div>
+        <a href="about.html" class="portrait-cta">Read Full Biography →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="featured-strip">
+  <div class="strip-inner">
+    <span class="strip-label">Available Now</span>
+    <div class="strip-items">
+      <span class="strip-item"><span class="strip-dot"></span>30+ Books Freely Available</span>
+      <span class="strip-item"><span class="strip-dot"></span>Hindi & English</span>
+      <span class="strip-item"><span class="strip-dot"></span>Students & Researchers</span>
+      <span class="strip-item"><span class="strip-dot"></span>No Registration Required</span>
+      <span class="strip-item"><span class="strip-dot"></span>Govt. College Bhattu Kalan</span>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT PREVIEW -->
+<section class="section section-alt" aria-labelledby="about-preview-title">
+  <div class="container">
+    <div class="grid-2">
+      <div class="fade-up">
+        <div class="about-preview-img">
+          <div class="about-monogram">RRA</div>
+        </div>
+      </div>
+      <div class="fade-up">
+        <p class="eyebrow">About the Author</p>
+        <h2 class="section-title" id="about-preview-title">Scholar, Educator &amp; Devoted Author</h2>
+        <p style="color:var(--text-secondary);line-height:1.8;margin-bottom:16px;font-size:16px;">Dr. Raja Ram Aggarawal is a distinguished academic and prolific author serving as Associate Professor at Government College, Bhattu Kalan. With over two decades of dedicated service in education, he has shaped the intellectual lives of thousands of students across Haryana and beyond.</p>
+        <p style="color:var(--text-secondary);line-height:1.8;margin-bottom:16px;font-size:16px;">His scholarly contributions span an impressive range of disciplines — from the philosophical depths of Indian history and political thought, to practical guides for self-development and youth empowerment.</p>
+        <p style="color:var(--text-secondary);line-height:1.8;margin-bottom:32px;font-size:16px;">Dr. Aggarawal believes that education must be accessible to all, which is why his works are made <strong>freely available</strong> to students, researchers, and curious minds everywhere.</p>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:32px;">
+          <div style="text-align:center;padding:16px 20px;background:var(--blue-light);border-radius:var(--radius);">
+            <span class="stat-num" style="font-size:28px;">Ph.D.</span>
+            <span class="stat-label">Highest Qualification</span>
+          </div>
+          <div style="text-align:center;padding:16px 20px;background:var(--green-light);border-radius:var(--radius);">
+            <span class="stat-num" style="font-size:28px;color:var(--green);">25+</span>
+            <span class="stat-label">Years of Teaching</span>
+          </div>
+          <div style="text-align:center;padding:16px 20px;background:var(--gold-light);border-radius:var(--radius);">
+            <span class="stat-num" style="font-size:28px;color:var(--gold);">30+</span>
+            <span class="stat-label">Books Published</span>
+          </div>
+        </div>
+        <a href="about.html" class="btn btn-primary">Read Full Biography →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED BOOKS -->
+<section class="section" aria-labelledby="featured-books-title">
+  <div class="container">
+    <div class="books-preview-header">
+      <div>
+        <p class="eyebrow">Featured Publications</p>
+        <h2 class="section-title" id="featured-books-title">Selected Works</h2>
+      </div>
+      <a href="books.html" class="btn btn-secondary">View All Books →</a>
+    </div>
+    <div class="grid-auto" id="featured-books-grid"></div>
+    <div style="text-align:center;margin-top:40px;">
+      <a href="books.html" class="btn btn-primary btn-lg">📚 Browse All 30+ Publications</a>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE BANNER -->
+<div class="quote-banner">
+  <blockquote>
+    "A teacher affects eternity; he can never tell where his influence stops."
+    <cite>— Dr. Raja Ram Aggarawal's guiding philosophy</cite>
+  </blockquote>
+</div>
+
+<!-- CATEGORIES PREVIEW -->
+<section class="section section-alt" aria-labelledby="cat-preview-title">
+  <div class="container">
+    <p class="eyebrow">Browse by Subject</p>
+    <h2 class="section-title" id="cat-preview-title">Book Categories</h2>
+    <p class="section-subtitle">Seven major subject areas — all freely accessible for students, researchers, and lifelong learners.</p>
+    <div class="cat-strip" id="cat-strip"></div>
+    <div style="text-align:center;margin-top:36px;">
+      <a href="categories.html" class="btn btn-secondary">Explore All Categories →</a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section" aria-labelledby="test-title">
+  <div class="container">
+    <p class="eyebrow">Reader Voices</p>
+    <h2 class="section-title" id="test-title">What Students & Scholars Say</h2>
+    <p class="section-subtitle">Trusted by students, researchers, and educators across India.</p>
+    <div class="grid-3" id="testimonials-grid"></div>
+  </div>
+</section>
+
+<!-- CONTRIBUTION -->
+<div class="contrib-section">
+  <div class="contrib-inner">
+    <p style="font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Support the Mission</p>
+    <h2>Knowledge Should Always Be Free</h2>
+    <p>All books on this website are freely available. If you find value in this work, you may voluntarily contribute to support future publications, digitization, and educational outreach programmes.</p>
+    <div class="contrib-methods">
+      <div class="contrib-pill"><div class="contrib-pill-icon">📱</div><div class="contrib-pill-label">UPI</div></div>
+      <div class="contrib-pill"><div class="contrib-pill-icon">🏦</div><div class="contrib-pill-label">Bank Transfer</div></div>
+      <div class="contrib-pill"><div class="contrib-pill-icon">✉️</div><div class="contrib-pill-label">Contact Us</div></div>
+    </div>
+    <p class="contrib-note">Your contribution helps preserve knowledge and makes quality educational resources freely accessible to future generations.</p>
+    <a href="contact.html" class="btn btn-gold" style="margin-top:20px;">Get in Touch to Contribute</a>
+  </div>
+</div>
+
+<!-- NEWS PREVIEW -->
+<section class="section section-alt" aria-labelledby="news-preview-title">
+  <div class="container">
+    <div class="books-preview-header">
+      <div>
+        <p class="eyebrow">Latest Updates</p>
+        <h2 class="section-title" id="news-preview-title">News & Announcements</h2>
+      </div>
+      <a href="news.html" class="btn btn-secondary">All News →</a>
+    </div>
+    <div class="grid-3" id="news-preview-grid"></div>
+  </div>
+</section>
+
+</main>
+
+<script>document.write(renderFooter('./'));</script>
+
+<script>
+// Featured books
+const featured = BOOKS.filter(b => b.featured);
+document.getElementById('featured-books-grid').innerHTML = featured.map(b => buildBookCard(b, true)).join('');
+
+// Categories strip
+document.getElementById('cat-strip').innerHTML = CATEGORIES.map(c => `
+  <a class="cat-card" href="categories.html#${c.name.toLowerCase().replace(/\s+/g,'-')}">
+    <div class="cat-icon" style="background:${c.color};">${c.icon}</div>
+    <div class="cat-name">${c.name}</div>
+    <div class="cat-desc">${c.desc}</div>
+    <div class="cat-count">${c.count} books →</div>
+  </a>`).join('');
+
+// Testimonials
+const testimonials = [
+  { stars:5, text:"Dr. Aggarawal's book on Indian History was a cornerstone of my UPSC preparation. The clarity and depth is unmatched in any other resource I have encountered.", name:"Amit Sharma", role:"UPSC Aspirant, Chandigarh", bg:"#e8f0fc", color:"#2563a8", initials:"AS" },
+  { stars:5, text:"As a fellow educator, I recommend his books on teaching methodology to every junior faculty member. His practical approach to pedagogy is truly transformative.", name:"Prof. Priya Kumar", role:"Associate Professor, Sirsa", bg:"#e8f5ee", color:"#1a5c3a", initials:"PK" },
+  { stars:5, text:"Making these books freely available online is an extraordinary act of intellectual generosity. This is what true scholarship looks like — sharing without barriers.", name:"Nidhi Batra", role:"Librarian, Govt. College Fatehabad", bg:"#fdf6e3", color:"#b8860b", initials:"NB" },
+];
+document.getElementById('testimonials-grid').innerHTML = testimonials.map(t => `
+  <div class="testimonial-card fade-up">
+    <div class="testimonial-stars">${'★'.repeat(t.stars)}</div>
+    <p class="testimonial-text">${t.text}</p>
+    <div class="testimonial-author">
+      <div class="author-avatar" style="background:${t.bg};color:${t.color};">${t.initials}</div>
+      <div><div class="author-name">${t.name}</div><div class="author-role">${t.role}</div></div>
+    </div>
+  </div>`).join('');
+
+// News preview
+const news = [
+  { type:"📚 New Publication", typeBg:"#e8f0fc", typeColor:"#2563a8", date:"Recent", title:"New Book on Indian History Now Available", excerpt:"The latest volume in Dr. Aggarawal's history series is now freely available in the digital library." },
+  { type:"🎤 Seminar", typeBg:"#e8f5ee", typeColor:"#1a5c3a", date:"Upcoming", title:"Academic Seminar on Educational Reforms", excerpt:"Dr. Aggarawal will present a keynote on modern pedagogical approaches at a regional education seminar." },
+  { type:"🏆 Achievement", typeBg:"#fdf6e3", typeColor:"#b8860b", date:"This Year", title:"Recognition for Contribution to Hindi Literature", excerpt:"Dr. Aggarawal has been recognized for significant contributions to Hindi academic writing and scholarship." },
+];
+document.getElementById('news-preview-grid').innerHTML = news.map(n => `
+  <div class="news-card fade-up">
+    <span class="news-type-badge" style="background:${n.typeBg};color:${n.typeColor};">${n.type}</span>
+    <div class="news-date">${n.date}</div>
+    <div class="news-title">${n.title}</div>
+    <div class="news-excerpt">${n.excerpt}</div>
+  </div>`).join('');
+
+initScrollAnimations();
+</script>
+</body>
+</html>

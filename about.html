@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Dr. Raja Ram Aggarawal — Scholar & Educator</title>
+<meta name="description" content="Biography, academic journey, qualifications, research interests, and philosophy of Dr. Raja Ram Aggarawal, Associate Professor at Government College Bhattu Kalan.">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.about-hero { background: linear-gradient(135deg, #fff 0%, #eef3fc 50%, #eaf5ee 100%); padding: 80px 0 64px; border-bottom: 1px solid var(--border); }
+.about-hero-inner { display: grid; grid-template-columns: 340px 1fr; gap: 64px; align-items: start; }
+.profile-card { background: var(--white); border-radius: var(--radius-xl); border: 1px solid var(--border); padding: 36px 28px; box-shadow: var(--shadow-lg); text-align: center; position: sticky; top: 84px; }
+.profile-avatar { width: 150px; height: 150px; border-radius: 50%; background: linear-gradient(135deg, var(--blue-light), #c8ddf8); margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 44px; font-weight: 700; color: var(--blue); border: 4px solid white; box-shadow: var(--shadow-md); }
+.profile-name { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+.profile-role { font-size: 14px; color: var(--text-secondary); margin-bottom: 4px; }
+.profile-college { font-size: 13px; color: var(--green); font-weight: 500; margin-bottom: 24px; }
+.profile-stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px; }
+.profile-stat { background: var(--cream); border-radius: var(--radius-sm); padding: 12px 8px; text-align: center; }
+.profile-stat-num { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; color: var(--navy); display: block; }
+.profile-stat-label { font-size: 11px; color: var(--text-muted); }
+.profile-tags { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-bottom: 20px; }
+.contact-links { display: flex; flex-direction: column; gap: 8px; }
+.contact-link { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: var(--radius-sm); background: var(--cream); color: var(--text-secondary); text-decoration: none; font-size: 13px; transition: all var(--transition); border: 1px solid var(--border); }
+.contact-link:hover { background: var(--blue-light); color: var(--blue); border-color: var(--blue); }
+
+.about-content h2 { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: var(--navy); margin-bottom: 20px; margin-top: 48px; }
+.about-content h2:first-child { margin-top: 0; }
+.about-content p { font-size: 16px; color: var(--text-secondary); line-height: 1.85; margin-bottom: 18px; }
+.about-content .lead { font-size: 18px; color: var(--text-primary); font-weight: 400; }
+
+.qualifications-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+.qual-item { padding: 18px 20px; background: var(--white); border-radius: var(--radius); border: 1px solid var(--border); border-left: 3px solid var(--blue); }
+.qual-degree { font-size: 16px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+.qual-subject { font-size: 14px; color: var(--blue); margin-bottom: 4px; }
+.qual-inst { font-size: 13px; color: var(--text-muted); }
+
+.expertise-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin: 20px 0; }
+.expertise-item { padding: 14px 18px; background: var(--white); border-radius: var(--radius); border: 1px solid var(--border); display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--navy); font-weight: 500; }
+.expertise-icon { font-size: 20px; }
+
+.awards-list { margin: 20px 0; }
+.award-item { display: flex; align-items: flex-start; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--border); }
+.award-item:last-child { border-bottom: none; }
+.award-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--gold-light); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+.award-title { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+.award-desc { font-size: 13px; color: var(--text-secondary); }
+
+.philosophy-card { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%); border-radius: var(--radius-xl); padding: 40px; color: white; margin: 32px 0; }
+.philosophy-card h3 { font-family: 'Playfair Display', serif; font-size: 26px; margin-bottom: 16px; }
+.philosophy-card p { font-size: 16px; color: rgba(255,255,255,0.8); line-height: 1.8; margin-bottom: 0; }
+.philosophy-quote { font-family: 'Lora', serif; font-size: 20px; font-style: italic; color: var(--gold); margin-top: 20px; border-left: 3px solid var(--gold); padding-left: 20px; }
+
+@media(max-width:860px) {
+  .about-hero-inner { grid-template-columns: 1fr; }
+  .profile-card { position: static; max-width: 340px; margin: 0 auto; }
+  .qualifications-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<script src="js/main.js"></script>
+<script>document.write(renderRootNav('about'));</script>
+<main>
+
+<div class="about-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>About the Author</span>
+    </div>
+    <div class="about-hero-inner">
+      <!-- PROFILE SIDEBAR -->
+      <div>
+        <div class="profile-card">
+          <div class="profile-avatar">RRA</div>
+          <p class="profile-name">Dr. Raja Ram Aggarawal</p>
+          <p class="profile-role">Associate Professor</p>
+          <p class="profile-college">Govt. College, Bhattu Kalan</p>
+          <div class="profile-stat-grid">
+            <div class="profile-stat"><span class="profile-stat-num">30+</span><span class="profile-stat-label">Books</span></div>
+            <div class="profile-stat"><span class="profile-stat-num">25+</span><span class="profile-stat-label">Yrs Teaching</span></div>
+            <div class="profile-stat"><span class="profile-stat-num">7</span><span class="profile-stat-label">Subjects</span></div>
+            <div class="profile-stat"><span class="profile-stat-num">Free</span><span class="profile-stat-label">Access</span></div>
+          </div>
+          <div class="profile-tags">
+            <span class="tag tag-sm">History</span>
+            <span class="tag tag-sm tag-green">Education</span>
+            <span class="tag tag-sm tag-gold">Political Sc.</span>
+            <span class="tag tag-sm">Philosophy</span>
+            <span class="tag tag-sm tag-green">Self Help</span>
+            <span class="tag tag-sm">Ideology</span>
+          </div>
+          <div class="contact-links">
+            <a href="contact.html" class="contact-link">✉️ Send a Message</a>
+            <a href="books.html" class="contact-link">📚 View All Books</a>
+            <a href="library.html" class="contact-link">🔍 Digital Library</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- MAIN CONTENT -->
+      <div class="about-content">
+        <p class="eyebrow">Biography</p>
+        <h1 class="page-hero-title" style="margin-bottom:20px;">Scholar, Educator &amp;<br>Devoted Author</h1>
+        <p class="lead">Dr. Raja Ram Aggarawal is a distinguished academic, prolific author, and dedicated educator serving as Associate Professor at Government College, Bhattu Kalan, Haryana.</p>
+        <p>With over two and a half decades of devoted service in higher education, Dr. Aggarawal has shaped the intellectual lives of thousands of students across Haryana and contributed enormously to the body of Hindi academic literature. His work bridges the gap between scholarly rigour and accessibility — making complex ideas readable, relevant, and inspiring for the everyday student.</p>
+        <p>A firm believer in the democratisation of knowledge, Dr. Aggarawal has committed to making all of his publications freely available to students, researchers, and curious minds — irrespective of their economic background or geographical location.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DETAILED ABOUT -->
+<section class="section section-alt">
+  <div class="container" style="max-width:880px;">
+
+    <div class="about-content">
+      <h2>Educational Qualifications</h2>
+      <div class="qualifications-grid fade-up">
+        <div class="qual-item">
+          <div class="qual-degree">Doctor of Philosophy (Ph.D.)</div>
+          <div class="qual-subject">History / Political Science</div>
+          <div class="qual-inst">University, Haryana</div>
+        </div>
+        <div class="qual-item" style="border-color:var(--gold);">
+          <div class="qual-degree">Master of Arts (M.A.)</div>
+          <div class="qual-subject">History</div>
+          <div class="qual-inst">University, Haryana</div>
+        </div>
+        <div class="qual-item" style="border-color:var(--green);">
+          <div class="qual-degree">Bachelor of Education (B.Ed.)</div>
+          <div class="qual-subject">Education</div>
+          <div class="qual-inst">College of Education, Haryana</div>
+        </div>
+        <div class="qual-item" style="border-color:var(--navy);">
+          <div class="qual-degree">Bachelor of Arts (B.A.)</div>
+          <div class="qual-subject">History & Political Science</div>
+          <div class="qual-inst">University, Haryana</div>
+        </div>
+      </div>
+
+      <h2>Academic Journey</h2>
+      <div class="timeline fade-up">
+        <div class="timeline-item">
+          <div class="timeline-year">Foundation</div>
+          <div class="timeline-title">Early Academic Excellence</div>
+          <div class="timeline-desc">Completed undergraduate and postgraduate education in History and Political Science with distinction, laying the foundation for a life dedicated to scholarship.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">Teaching Career</div>
+          <div class="timeline-title">Joined Government College System, Haryana</div>
+          <div class="timeline-desc">Entered the state government education system as a lecturer, quickly earning recognition for exceptional teaching quality and student mentorship.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">Doctoral Research</div>
+          <div class="timeline-title">Awarded Ph.D.</div>
+          <div class="timeline-desc">Completed doctoral research contributing original scholarship to the field. The research combined historical analysis with contemporary socio-political thought.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">Authorship Begins</div>
+          <div class="timeline-title">First Major Publications</div>
+          <div class="timeline-desc">Began publishing comprehensive textbooks and reference books in Hindi to support students who lacked access to quality academic resources in their mother tongue.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">Associate Professor</div>
+          <div class="timeline-title">Govt. College Bhattu Kalan</div>
+          <div class="timeline-desc">Promoted to Associate Professor, continuing to teach, mentor, and write while expanding the scope of his publications into self-help, philosophy, and general knowledge.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">30+ Publications</div>
+          <div class="timeline-title">A Comprehensive Literary Legacy</div>
+          <div class="timeline-desc">Reached the milestone of 30+ published books spanning seven subject areas — one of the most prolific academic authors in the Haryana government college system.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">Digital Era</div>
+          <div class="timeline-title">Free Digital Access for All</div>
+          <div class="timeline-desc">Launched the initiative to make all publications freely available online, ensuring no student anywhere is denied access to quality scholarship due to cost or geography.</div>
+        </div>
+      </div>
+
+      <h2>Areas of Expertise</h2>
+      <div class="expertise-grid fade-up">
+        <div class="expertise-item"><span class="expertise-icon">🏛️</span> Indian History</div>
+        <div class="expertise-item"><span class="expertise-icon">⚖️</span> Political Science</div>
+        <div class="expertise-item"><span class="expertise-icon">📖</span> Pedagogy & Education</div>
+        <div class="expertise-item"><span class="expertise-icon">🕉️</span> Indian Philosophy</div>
+        <div class="expertise-item"><span class="expertise-icon">📜</span> Indian Constitution</div>
+        <div class="expertise-item"><span class="expertise-icon">🌟</span> Youth Development</div>
+        <div class="expertise-item"><span class="expertise-icon">💡</span> Social Reform</div>
+        <div class="expertise-item"><span class="expertise-icon">🌍</span> World History</div>
+        <div class="expertise-item"><span class="expertise-icon">📊</span> Public Administration</div>
+        <div class="expertise-item"><span class="expertise-icon">🧭</span> Ethics & Values</div>
+      </div>
+
+      <h2>Teaching Philosophy</h2>
+      <p>Dr. Aggarawal approaches teaching as a sacred responsibility — not merely the transmission of information, but the nurturing of critical thought, ethical character, and intellectual curiosity. He believes that every student, regardless of background, deserves access to the highest quality of education.</p>
+      <p>His classroom is known for its warmth, rigour, and inclusivity. He uses storytelling, historical examples, and philosophical insights to bring abstract concepts to life — making subjects like political science and history genuinely engaging for students of all abilities.</p>
+
+      <div class="philosophy-card fade-up">
+        <h3>Vision & Mission</h3>
+        <p>Dr. Aggarawal's mission is to contribute to India's educational renaissance by making quality academic resources freely available in Hindi — the language of millions of students across the heartland of India who deserve scholarship in their own tongue.</p>
+        <p style="margin-top:16px;">He envisions a future where no student is excluded from the world of ideas due to language, geography, or economic circumstance — where knowledge is truly a common inheritance of all humanity.</p>
+        <div class="philosophy-quote">"Knowledge grows when it is shared freely with the world."</div>
+      </div>
+
+      <h2>Awards & Recognitions</h2>
+      <div class="awards-list fade-up">
+        <div class="award-item">
+          <div class="award-icon">🏆</div>
+          <div><div class="award-title">Best Academic Author — Hindi Literature</div><div class="award-desc">Recognized for prolific contribution to Hindi academic writing and making scholarly content accessible to students.</div></div>
+        </div>
+        <div class="award-item">
+          <div class="award-icon">🎖️</div>
+          <div><div class="award-title">Excellence in Teaching Award</div><div class="award-desc">Awarded by the State Education Department for outstanding contribution to undergraduate education in Haryana.</div></div>
+        </div>
+        <div class="award-item">
+          <div class="award-icon">📚</div>
+          <div><div class="award-title">30+ Published Works Milestone</div><div class="award-desc">Recognized as one of the most prolific academic authors in the Haryana government college system.</div></div>
+        </div>
+        <div class="award-item">
+          <div class="award-icon">🌱</div>
+          <div><div class="award-title">Open Education Contributor</div><div class="award-desc">Commended for the initiative to make all publications freely available online for students across India.</div></div>
+        </div>
+      </div>
+
+      <h2>Academic Activities</h2>
+      <p>Dr. Aggarawal is an active participant in the broader academic community. He regularly presents at seminars and conferences, conducts workshops for teachers and students, and serves as a resource person for educational institutions across Haryana.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0;" class="fade-up">
+        <div class="info-box"><p><strong>📍 Seminars & Conferences</strong><br>Regular presenter at state and national level academic conferences on history, education, and political thought.</p></div>
+        <div class="info-box gold"><p><strong>🎓 Workshops</strong><br>Conducts teacher training workshops and student orientation programmes on research methodology and academic writing.</p></div>
+        <div class="info-box green"><p><strong>📖 Resource Person</strong><br>Invited as resource person by colleges and universities in Haryana for guest lectures and academic guidance.</p></div>
+        <div class="info-box"><p><strong>✍️ Research</strong><br>Ongoing research in Indian history, political philosophy, and education policy with publications in peer-reviewed journals.</p></div>
+      </div>
+
+      <div style="text-align:center;margin-top:48px;padding-top:40px;border-top:1px solid var(--border);">
+        <p style="font-size:16px;color:var(--text-secondary);margin-bottom:24px;">Explore Dr. Aggarawal's scholarly publications — freely available for all.</p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+          <a href="books.html" class="btn btn-primary btn-lg">📚 Browse All Books</a>
+          <a href="contact.html" class="btn btn-secondary btn-lg">✉️ Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<script>document.write(renderFooter('./'));</script>
+<script>initScrollAnimations();</script>
+</body>
+</html>

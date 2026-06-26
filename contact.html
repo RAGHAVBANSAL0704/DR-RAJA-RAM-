@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Dr. Raja Ram Aggarawal</title>
+<meta name="description" content="Contact Dr. Raja Ram Aggarawal, Associate Professor at Government College Bhattu Kalan. For academic inquiries, research collaboration, and book queries.">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.contact-hero { background:linear-gradient(135deg,#fff 0%,#eef3fc 55%,#eaf5ee 100%); padding:72px 0 56px; border-bottom:1px solid var(--border); }
+.contact-layout { display:grid; grid-template-columns:1fr 1.1fr; gap:56px; align-items:start; }
+.contact-info-block { margin-bottom:32px; }
+.contact-info-row { display:flex; align-items:flex-start; gap:18px; padding:20px 0; border-bottom:1px solid var(--border); }
+.contact-info-row:last-child { border-bottom:none; }
+.contact-info-icon { width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0; }
+.contact-info-label { font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-muted); margin-bottom:5px; }
+.contact-info-value { font-size:15px; font-weight:500; color:var(--navy); margin-bottom:3px; }
+.contact-info-sub { font-size:13px; color:var(--text-secondary); line-height:1.5; }
+
+.form-card { background:var(--white); border-radius:var(--radius-xl); border:1px solid var(--border); padding:40px; box-shadow:var(--shadow-md); }
+.form-card-title { font-family:'Playfair Display',serif; font-size:26px; font-weight:700; color:var(--navy); margin-bottom:6px; }
+.form-card-sub { font-size:14px; color:var(--text-muted); margin-bottom:28px; }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.form-group { margin-bottom:18px; }
+.form-label { display:block; font-size:13px; font-weight:500; color:var(--navy); margin-bottom:7px; }
+.form-label span { color:#e53e3e; }
+.form-input { width:100%; padding:11px 14px; border-radius:var(--radius-sm); border:1.5px solid var(--border-strong); background:var(--cream); color:var(--text-primary); font-size:15px; font-family:inherit; outline:none; transition:all var(--transition); }
+.form-input:focus { border-color:var(--blue); background:var(--white); box-shadow:0 0 0 3px rgba(37,99,168,0.08); }
+textarea.form-input { resize:vertical; min-height:130px; line-height:1.6; }
+select.form-input { cursor:pointer; appearance:none; background-image:url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 7L11 1' stroke='%23718096' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 14px center; }
+.form-submit-btn { width:100%; padding:14px; border-radius:var(--radius-sm); background:var(--blue); color:white; border:none; font-size:16px; font-weight:600; cursor:pointer; font-family:inherit; transition:all var(--transition); display:flex; align-items:center; justify-content:center; gap:8px; }
+.form-submit-btn:hover { background:var(--navy-mid); transform:translateY(-1px); box-shadow:var(--shadow-md); }
+.form-note { font-size:12px; color:var(--text-muted); text-align:center; margin-top:12px; }
+
+.map-card { background:var(--white); border-radius:var(--radius-lg); border:1px solid var(--border); overflow:hidden; margin-top:28px; }
+.map-placeholder { background:linear-gradient(135deg,var(--blue-light),var(--green-light)); height:220px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px; }
+.map-placeholder-icon { font-size:48px; }
+.map-placeholder-text { font-size:15px; font-weight:500; color:var(--navy); }
+.map-placeholder-sub { font-size:13px; color:var(--text-secondary); }
+.map-address { padding:20px 24px; border-top:1px solid var(--border); }
+.map-address p { font-size:14px; color:var(--text-secondary); line-height:1.7; }
+
+.faq-item { border:1px solid var(--border); border-radius:var(--radius); margin-bottom:10px; overflow:hidden; }
+.faq-q { padding:16px 20px; font-size:15px; font-weight:500; color:var(--navy); cursor:pointer; display:flex; justify-content:space-between; align-items:center; transition:background var(--transition); user-select:none; }
+.faq-q:hover { background:var(--blue-light); }
+.faq-q.open { background:var(--blue-light); color:var(--blue); }
+.faq-arrow { font-size:13px; transition:transform var(--transition); }
+.faq-q.open .faq-arrow { transform:rotate(180deg); }
+.faq-a { display:none; padding:0 20px 16px; font-size:14px; color:var(--text-secondary); line-height:1.7; }
+.faq-a.open { display:block; }
+
+@media(max-width:860px){ .contact-layout { grid-template-columns:1fr; } .form-row { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<script src="js/main.js"></script>
+<script>document.write(renderRootNav('contact'));</script>
+<main>
+
+<div class="contact-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>Contact</span>
+    </div>
+    <p class="eyebrow">Get in Touch</p>
+    <h1 class="page-hero-title">Contact Dr. Aggarawal</h1>
+    <p class="page-hero-sub">For academic inquiries, research collaboration, book queries, or general correspondence — Dr. Aggarawal welcomes communication from students, scholars, and readers.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="contact-layout">
+
+      <!-- LEFT: INFO -->
+      <div>
+        <p class="eyebrow">Contact Details</p>
+        <h2 class="section-title" style="font-size:28px;margin-bottom:8px;">Office &amp; Correspondence</h2>
+        <p style="font-size:15px;color:var(--text-secondary);margin-bottom:28px;">Responses are typically provided within 2–3 working days. Hindi and English correspondence are both welcome.</p>
+
+        <div class="contact-info-block">
+          <div class="contact-info-row">
+            <div class="contact-info-icon" style="background:var(--blue-light);">🏛️</div>
+            <div>
+              <div class="contact-info-label">Institution</div>
+              <div class="contact-info-value">Government College, Bhattu Kalan</div>
+              <div class="contact-info-sub">Tehsil Bhattu Kalan, District Fatehabad<br>Haryana – 125104, India</div>
+            </div>
+          </div>
+          <div class="contact-info-row">
+            <div class="contact-info-icon" style="background:var(--green-light);">📧</div>
+            <div>
+              <div class="contact-info-label">Email</div>
+              <div class="contact-info-value">dr.rajaramaggarawal@gmail.com</div>
+              <div class="contact-info-sub">For academic inquiries, book queries &amp; research collaboration</div>
+            </div>
+          </div>
+          <div class="contact-info-row">
+            <div class="contact-info-icon" style="background:var(--gold-light);">🕐</div>
+            <div>
+              <div class="contact-info-label">Office Hours</div>
+              <div class="contact-info-value">Monday – Friday, 9:00 AM – 5:00 PM</div>
+              <div class="contact-info-sub">During academic sessions · Closed on public holidays</div>
+            </div>
+          </div>
+          <div class="contact-info-row">
+            <div class="contact-info-icon" style="background:var(--blue-light);">🌐</div>
+            <div>
+              <div class="contact-info-label">Languages</div>
+              <div class="contact-info-value">Hindi &amp; English</div>
+              <div class="contact-info-sub">Correspondence welcome in both languages</div>
+            </div>
+          </div>
+          <div class="contact-info-row">
+            <div class="contact-info-icon" style="background:var(--green-light);">📚</div>
+            <div>
+              <div class="contact-info-label">For Book Inquiries</div>
+              <div class="contact-info-value">Use the contact form →</div>
+              <div class="contact-info-sub">For book requests, PDF access, citation queries, or bulk orders for institutions</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MAP -->
+        <div class="map-card">
+          <div class="map-placeholder">
+            <div class="map-placeholder-icon">📍</div>
+            <div class="map-placeholder-text">Government College, Bhattu Kalan</div>
+            <div class="map-placeholder-sub">Fatehabad, Haryana, India</div>
+            <a href="https://maps.google.com/?q=Bhattu+Kalan+Haryana+India" target="_blank" rel="noopener" class="btn btn-primary btn-sm" style="margin-top:8px;">Open in Google Maps ↗</a>
+          </div>
+          <div class="map-address">
+            <p>Government College, Bhattu Kalan · Tehsil Bhattu Kalan · District Fatehabad · Haryana – 125104 · India</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: FORM -->
+      <div>
+        <div class="form-card">
+          <h2 class="form-card-title">Send a Message</h2>
+          <p class="form-card-sub">Fill in the form below and Dr. Aggarawal will respond within 2–3 working days.</p>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="f-name">Full Name <span>*</span></label>
+              <input type="text" id="f-name" class="form-input" placeholder="Your full name">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="f-email">Email Address <span>*</span></label>
+              <input type="email" id="f-email" class="form-input" placeholder="your@email.com">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="f-purpose">Purpose of Contact <span>*</span></label>
+            <select id="f-purpose" class="form-input">
+              <option value="">Select a purpose…</option>
+              <option>Book Inquiry</option>
+              <option>Research Collaboration</option>
+              <option>Request PDF Access</option>
+              <option>Citation Query</option>
+              <option>Academic Question</option>
+              <option>Bulk Order for Institution</option>
+              <option>Media / Press</option>
+              <option>General Correspondence</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="f-subject">Subject</label>
+            <input type="text" id="f-subject" class="form-input" placeholder="Brief subject of your message">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="f-institution">Institution / Organization</label>
+            <input type="text" id="f-institution" class="form-input" placeholder="Your college, university, or organization (optional)">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="f-message">Message <span>*</span></label>
+            <textarea id="f-message" class="form-input" placeholder="Write your message here. Please be as specific as possible so Dr. Aggarawal can respond helpfully."></textarea>
+          </div>
+
+          <div class="form-group" style="display:flex;align-items:flex-start;gap:10px;">
+            <input type="checkbox" id="f-consent" style="margin-top:4px;flex-shrink:0;">
+            <label for="f-consent" style="font-size:13px;color:var(--text-secondary);line-height:1.5;cursor:pointer;">I agree that my information will be used solely to respond to this inquiry and will not be shared with third parties.</label>
+          </div>
+
+          <button class="form-submit-btn" onclick="handleContactForm()">Send Message ✉️</button>
+          <p class="form-note">✓ All fields marked * are required · Replies within 2–3 working days</p>
+        </div>
+
+        <!-- QUICK LINKS -->
+        <div style="background:var(--white);border-radius:var(--radius-lg);border:1px solid var(--border);padding:28px;margin-top:20px;">
+          <p style="font-size:14px;font-weight:600;color:var(--navy);margin-bottom:16px;">Quick Links</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+            <a href="library.html" class="btn btn-secondary btn-sm">📚 Digital Library</a>
+            <a href="books.html" class="btn btn-secondary btn-sm">🔍 Browse Books</a>
+            <a href="about.html" class="btn btn-secondary btn-sm">👤 About the Author</a>
+            <a href="library.html" class="btn btn-gold btn-sm">📋 Cite a Book</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section-alt">
+  <div class="container" style="max-width:780px;">
+    <p class="eyebrow">FAQ</p>
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <p class="section-subtitle">Common queries about Dr. Aggarawal's books, access, and collaboration.</p>
+    <div id="faq-list"></div>
+  </div>
+</section>
+
+</main>
+<script>document.write(renderFooter('./'));</script>
+
+<script>
+const faqs = [
+  { q:"Are all books really free to access?", a:"Yes — absolutely. Dr. Aggarawal is committed to making all his publications freely available to students, researchers, and readers everywhere. There is no registration, no payment, and no login required. Knowledge should be free." },
+  { q:"Can I use these books in my college or university course?", a:"Yes, and this is actively encouraged. Educators are welcome to use Dr. Aggarawal's books as course materials, reference texts, or supplementary readings. For bulk physical copies for an institution, please use the contact form." },
+  { q:"How do I cite one of Dr. Aggarawal's books in my research?", a:"Visit the Digital Library page and click the 'Cite' button on any book. You will find ready-to-use citations in APA, MLA, Chicago, and BibTeX formats that you can copy instantly." },
+  { q:"Can I request a physical copy of a book?", a:"For individual readers, digital access is provided free of charge. For institutions needing physical copies in bulk for libraries or students, please contact Dr. Aggarawal directly using the form above." },
+  { q:"Is collaboration on research or writing projects possible?", a:"Dr. Aggarawal is open to academic collaboration — including co-authoring, contributing chapters, reviewing manuscripts, or serving as a resource person. Please use the contact form to describe your proposal." },
+  { q:"Can Dr. Aggarawal be invited as a guest lecturer or resource person?", a:"Yes. Dr. Aggarawal regularly accepts invitations for guest lectures, keynote addresses, and workshop facilitation at colleges and universities, particularly in Haryana and neighbouring states. Send the details through the contact form." },
+  { q:"How long does it take to get a response?", a:"Responses are typically sent within 2–3 working days. During examination seasons or vacation periods, responses may take slightly longer. Both Hindi and English correspondence are welcome." },
+];
+
+document.getElementById('faq-list').innerHTML = faqs.map((f,i)=>`
+  <div class="faq-item">
+    <div class="faq-q" id="fq${i}" onclick="toggleFaq(${i})">
+      <span>${f.q}</span>
+      <span class="faq-arrow">▼</span>
+    </div>
+    <div class="faq-a" id="fa${i}">${f.a}</div>
+  </div>`).join('');
+
+function toggleFaq(i) {
+  const q = document.getElementById('fq'+i);
+  const a = document.getElementById('fa'+i);
+  const isOpen = q.classList.contains('open');
+  document.querySelectorAll('.faq-q').forEach(el=>el.classList.remove('open'));
+  document.querySelectorAll('.faq-a').forEach(el=>el.classList.remove('open'));
+  if (!isOpen) { q.classList.add('open'); a.classList.add('open'); }
+}
+
+function handleContactForm() {
+  const name = document.getElementById('f-name').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  const purpose = document.getElementById('f-purpose').value;
+  const msg = document.getElementById('f-message').value.trim();
+  const consent = document.getElementById('f-consent').checked;
+  if (!name || !email || !purpose || !msg) { showToast('⚠️ Please fill in all required fields.'); return; }
+  if (!consent) { showToast('⚠️ Please confirm consent to proceed.'); return; }
+  showToast('✅ Message sent! Dr. Aggarawal will respond within 2–3 working days.');
+  ['f-name','f-email','f-subject','f-institution','f-message'].forEach(id=>{
+    const el=document.getElementById(id); if(el) el.value='';
+  });
+  document.getElementById('f-purpose').value='';
+  document.getElementById('f-consent').checked=false;
+}
+</script>
+</body>
+</html>

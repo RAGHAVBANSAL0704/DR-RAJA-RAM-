@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Library — Dr. Raja Ram Aggarawal</title>
+<meta name="description" content="Search and access all books by Dr. Raja Ram Aggarawal. Free digital library with advanced search, filters, citations, and online reading.">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.lib-hero { background: linear-gradient(135deg, var(--navy) 0%, #1e3060 100%); padding: 72px 0 56px; color: white; }
+.lib-hero .eyebrow { color: var(--gold); }
+.lib-hero .eyebrow::before { background: var(--gold); }
+.lib-hero-title { font-family: 'Playfair Display', serif; font-size: clamp(30px,4.5vw,52px); font-weight: 700; color: white; margin-bottom: 14px; line-height: 1.12; }
+.lib-hero-sub { font-size: 17px; color: rgba(255,255,255,0.75); max-width: 560px; line-height: 1.75; }
+
+.lib-search-card { background: white; border-radius: var(--radius-xl); padding: 32px; box-shadow: var(--shadow-xl); border: 1px solid var(--border); margin-top: -40px; position: relative; z-index: 2; }
+[data-theme="dark"] .lib-search-card { background: var(--white); }
+
+.big-search { display: flex; gap: 12px; margin-bottom: 20px; }
+.big-search-input { flex: 1; padding: 14px 18px 14px 48px; border-radius: var(--radius); border: 2px solid var(--border-strong); background: var(--cream); color: var(--text-primary); font-size: 16px; outline: none; transition: all var(--transition); }
+.big-search-input:focus { border-color: var(--blue); background: var(--white); box-shadow: 0 0 0 4px rgba(37,99,168,0.08); }
+.big-search-wrap { position: relative; flex: 1; }
+.big-search-icon { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); font-size: 20px; color: var(--text-muted); pointer-events: none; }
+.big-search-btn { padding: 14px 28px; border-radius: var(--radius); background: var(--blue); color: white; border: none; font-size: 16px; font-weight: 600; cursor: pointer; transition: background var(--transition); white-space: nowrap; }
+.big-search-btn:hover { background: var(--navy-mid); }
+
+.filter-pills { display: flex; gap: 8px; flex-wrap: wrap; padding-top: 20px; border-top: 1px solid var(--border); }
+.filter-pill { padding: 7px 16px; border-radius: 100px; border: 1.5px solid var(--border-strong); background: transparent; color: var(--text-secondary); font-size: 13px; font-weight: 500; cursor: pointer; transition: all var(--transition); font-family: inherit; }
+.filter-pill.active, .filter-pill:hover { background: var(--blue); color: white; border-color: var(--blue); }
+
+.adv-filters { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+.adv-select { padding: 9px 32px 9px 12px; border-radius: var(--radius-sm); border: 1.5px solid var(--border-strong); background: var(--cream); color: var(--text-secondary); font-size: 14px; cursor: pointer; outline: none; appearance: none; background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23718096' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; }
+
+.results-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 12px; }
+.results-info { font-size: 14px; color: var(--text-muted); }
+.results-info strong { color: var(--navy); font-size: 15px; }
+.sort-wrap { display: flex; gap: 8px; align-items: center; }
+.sort-label { font-size: 13px; color: var(--text-muted); }
+
+.book-list-item { background: var(--white); border-radius: var(--radius-lg); border: 1px solid var(--border); padding: 24px; display: flex; gap: 24px; align-items: flex-start; transition: all var(--transition); margin-bottom: 16px; }
+.book-list-item:hover { box-shadow: var(--shadow-md); border-color: var(--border-strong); transform: translateX(3px); }
+.book-list-spine { width: 80px; height: 110px; border-radius: 3px 6px 6px 3px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; padding: 8px; text-align: center; position: relative; box-shadow: 3px 3px 10px rgba(0,0,0,0.15), -1px 0 5px rgba(0,0,0,0.08); }
+.book-list-spine::before { content:''; position:absolute; left:0; top:0; bottom:0; width:6px; background:rgba(0,0,0,0.15); border-radius:3px 0 0 3px; }
+.book-list-spine-text { font-family:'Playfair Display',serif; font-size:8.5px; font-weight:700; color:white; line-height:1.3; }
+.book-list-body { flex: 1; min-width: 0; }
+.book-list-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 8px; flex-wrap: wrap; }
+.book-list-title { font-size: 17px; font-weight: 600; color: var(--navy); line-height: 1.3; }
+.book-list-subtitle { font-size: 14px; color: var(--text-muted); margin-bottom: 10px; }
+.book-list-meta { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 10px; }
+.book-list-meta-item { font-size: 12px; color: var(--text-muted); display: flex; align-items: center; gap: 4px; }
+.book-list-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 14px; }
+.book-list-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.book-list-btn { padding: 7px 14px; border-radius: var(--radius-sm); border: none; cursor: pointer; font-size: 13px; font-weight: 500; transition: all var(--transition); font-family: inherit; }
+.book-list-btn-read { background: var(--blue); color: white; }
+.book-list-btn-read:hover { background: var(--navy-mid); }
+.book-list-btn-cite { background: var(--blue-light); color: var(--blue); }
+.book-list-btn-cite:hover { background: var(--blue); color: white; }
+.book-list-btn-detail { background: var(--cream); color: var(--text-secondary); border: 1px solid var(--border-strong); text-decoration: none; display: inline-flex; align-items: center; }
+.book-list-btn-detail:hover { background: var(--navy); color: white; }
+
+.cite-modal-overlay { display:none; position:fixed; inset:0; z-index:999; background:rgba(0,0,0,0.55); backdrop-filter:blur(6px); align-items:center; justify-content:center; padding:24px; }
+.cite-modal-overlay.open { display:flex; }
+.cite-modal { background:var(--white); border-radius:var(--radius-xl); max-width:600px; width:100%; max-height:88vh; overflow-y:auto; box-shadow:var(--shadow-xl); }
+.cite-modal-header { padding:28px 28px 0; display:flex; justify-content:space-between; align-items:center; }
+.cite-modal-title { font-family:'Playfair Display',serif; font-size:22px; color:var(--navy); }
+.cite-close { width:34px; height:34px; border-radius:var(--radius-sm); border:1px solid var(--border-strong); background:transparent; cursor:pointer; font-size:18px; color:var(--text-secondary); display:flex; align-items:center; justify-content:center; }
+.cite-close:hover { background:var(--cream); }
+.cite-modal-body { padding:20px 28px 28px; }
+.cite-tab-row { display:flex; gap:4px; margin-bottom:20px; background:var(--cream); padding:4px; border-radius:var(--radius-sm); }
+.cite-tab { flex:1; padding:7px; border-radius:6px; border:none; background:transparent; cursor:pointer; font-size:13px; font-weight:500; color:var(--text-secondary); transition:all var(--transition); font-family:inherit; }
+.cite-tab.active { background:var(--white); color:var(--navy); box-shadow:var(--shadow-xs); }
+.cite-block { background:var(--cream); border:1px solid var(--border); border-radius:var(--radius-sm); padding:14px 16px; font-size:13px; color:var(--text-secondary); line-height:1.75; font-family:'Courier New',monospace; margin-bottom:12px; }
+.cite-copy-btn { padding:7px 16px; border-radius:var(--radius-sm); background:var(--blue-light); color:var(--blue); border:none; cursor:pointer; font-size:13px; font-weight:500; font-family:inherit; transition:all var(--transition); }
+.cite-copy-btn:hover { background:var(--blue); color:white; }
+
+.bookmark-bar { background:var(--gold-light); border:1px solid rgba(184,134,11,0.2); border-radius:var(--radius); padding:14px 20px; margin-bottom:28px; display:flex; align-items:center; gap:12px; }
+.bookmark-bar-icon { font-size:22px; }
+.bookmark-bar-text { font-size:14px; color:var(--gold); flex:1; }
+.bookmark-bar-btn { padding:7px 16px; border-radius:var(--radius-sm); background:var(--gold); color:white; border:none; font-size:13px; font-weight:500; cursor:pointer; font-family:inherit; }
+
+.stat-strip { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:40px; }
+.stat-strip-item { background:var(--white); border-radius:var(--radius); border:1px solid var(--border); padding:20px; text-align:center; }
+</style>
+</head>
+<body>
+<script src="js/main.js"></script>
+<script>document.write(renderRootNav('library'));</script>
+<main>
+
+<div class="lib-hero">
+  <div class="container">
+    <div class="breadcrumb" style="margin-bottom:20px;">
+      <a href="index.html" style="color:rgba(255,255,255,0.6);">Home</a>
+      <span class="breadcrumb-sep" style="color:rgba(255,255,255,0.3);">›</span>
+      <span style="color:rgba(255,255,255,0.8);">Digital Library</span>
+    </div>
+    <p class="eyebrow">Digital Library</p>
+    <h1 class="lib-hero-title">Search &amp; Discover<br>Free Scholarly Books</h1>
+    <p class="lib-hero-sub">Search all 30+ publications by Dr. Raja Ram Aggarawal. Filter by subject, language, year. Read, cite, and download — completely free.</p>
+  </div>
+</div>
+
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <!-- SEARCH CARD -->
+    <div class="lib-search-card">
+      <div class="big-search">
+        <div class="big-search-wrap">
+          <span class="big-search-icon">🔍</span>
+          <input type="search" class="big-search-input" id="lib-search" placeholder="Search by title, keyword, ISBN, author, year…" oninput="libSearch()" aria-label="Search the library">
+        </div>
+        <button class="big-search-btn" onclick="libSearch()">Search</button>
+      </div>
+      <div class="filter-pills" id="cat-pills">
+        <button class="filter-pill active" onclick="setPill('',this)">All Subjects</button>
+        <button class="filter-pill" onclick="setPill('History',this)">🏛️ History</button>
+        <button class="filter-pill" onclick="setPill('Education',this)">📖 Education</button>
+        <button class="filter-pill" onclick="setPill('Political Science',this)">⚖️ Political Sc.</button>
+        <button class="filter-pill" onclick="setPill('Religion',this)">🕉️ Religion</button>
+        <button class="filter-pill" onclick="setPill('Self Help',this)">🌟 Self Help</button>
+        <button class="filter-pill" onclick="setPill('Ideology',this)">💡 Ideology</button>
+        <button class="filter-pill" onclick="setPill('General',this)">📝 General</button>
+      </div>
+      <div class="adv-filters" style="margin-top:16px;padding-top:16px;border-top:1px solid var(--border);">
+        <select class="adv-select" id="lib-lang" onchange="libSearch()">
+          <option value="">All Languages</option>
+          <option value="Hindi">Hindi</option>
+          <option value="English">English</option>
+        </select>
+        <select class="adv-select" id="lib-year" onchange="libSearch()">
+          <option value="">All Years</option>
+          <option value="2023">2023</option>
+          <option value="2022">2022</option>
+          <option value="2021">2021</option>
+          <option value="2020">2020</option>
+          <option value="2019">2019</option>
+          <option value="2018">2018</option>
+          <option value="2017">2017</option>
+          <option value="2016">2016</option>
+        </select>
+        <select class="adv-select" id="lib-sort" onchange="libSearch()">
+          <option value="title">Sort: A – Z</option>
+          <option value="year-desc">Sort: Newest</option>
+          <option value="year-asc">Sort: Oldest</option>
+          <option value="pages">Sort: Longest</option>
+        </select>
+        <button class="btn btn-secondary btn-sm" onclick="clearLib()">✕ Clear</button>
+      </div>
+    </div>
+
+    <!-- STATS -->
+    <div class="stat-strip">
+      <div class="stat-strip-item">
+        <span class="stat-num">30+</span>
+        <span class="stat-label">Total Books</span>
+      </div>
+      <div class="stat-strip-item">
+        <span class="stat-num" style="color:var(--green);">Free</span>
+        <span class="stat-label">Always Free</span>
+      </div>
+      <div class="stat-strip-item">
+        <span class="stat-num" style="color:var(--gold);">7</span>
+        <span class="stat-label">Subject Areas</span>
+      </div>
+      <div class="stat-strip-item">
+        <span class="stat-num" style="color:var(--blue);">2</span>
+        <span class="stat-label">Languages</span>
+      </div>
+    </div>
+
+    <!-- BOOKMARK BAR -->
+    <div class="bookmark-bar">
+      <span class="bookmark-bar-icon">📌</span>
+      <span class="bookmark-bar-text">Tip: Click <strong>Cite</strong> on any book to instantly generate APA, MLA, Chicago, or BibTeX citations for your research.</span>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="results-bar">
+      <p class="results-info" id="lib-count"><strong>12</strong> books available</p>
+      <p style="font-size:13px;color:var(--text-muted);">No registration · No login · Always free</p>
+    </div>
+
+    <div id="lib-results"></div>
+
+    <div id="lib-no-results" style="display:none;">
+      <div style="text-align:center;padding:64px 28px;">
+        <div style="font-size:52px;margin-bottom:16px;">📭</div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:22px;color:var(--navy);margin-bottom:8px;">No books found</h3>
+        <p style="color:var(--text-muted);font-size:15px;">Try different keywords or clear the filters.</p>
+        <button class="btn btn-secondary" style="margin-top:20px;" onclick="clearLib()">Clear All Filters</button>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:40px;padding:32px;background:var(--white);border-radius:var(--radius-lg);border:1px solid var(--border);">
+      <p style="font-family:'Playfair Display',serif;font-size:20px;color:var(--navy);margin-bottom:8px;">Can't find what you're looking for?</p>
+      <p style="font-size:14px;color:var(--text-muted);margin-bottom:20px;">Contact Dr. Aggarawal directly for research inquiries, unpublished works, or academic collaboration.</p>
+      <a href="contact.html" class="btn btn-primary">✉️ Contact the Author</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- CITATION MODAL -->
+<div class="cite-modal-overlay" id="cite-modal">
+  <div class="cite-modal">
+    <div class="cite-modal-header">
+      <h2 class="cite-modal-title" id="cite-book-title">Citation</h2>
+      <button class="cite-close" onclick="closeCiteModal()">✕</button>
+    </div>
+    <div class="cite-modal-body">
+      <div class="cite-tab-row">
+        <button class="cite-tab active" onclick="showCiteTab('apa',this)">APA</button>
+        <button class="cite-tab" onclick="showCiteTab('mla',this)">MLA</button>
+        <button class="cite-tab" onclick="showCiteTab('chicago',this)">Chicago</button>
+        <button class="cite-tab" onclick="showCiteTab('bibtex',this)">BibTeX</button>
+      </div>
+      <div id="cite-content-apa"><div class="cite-block" id="cite-apa-text"></div><button class="cite-copy-btn" onclick="copyText(document.getElementById('cite-apa-text').textContent,'APA citation copied!')">📋 Copy APA</button></div>
+      <div id="cite-content-mla" style="display:none;"><div class="cite-block" id="cite-mla-text"></div><button class="cite-copy-btn" onclick="copyText(document.getElementById('cite-mla-text').textContent,'MLA citation copied!')">📋 Copy MLA</button></div>
+      <div id="cite-content-chicago" style="display:none;"><div class="cite-block" id="cite-chicago-text"></div><button class="cite-copy-btn" onclick="copyText(document.getElementById('cite-chicago-text').textContent,'Chicago citation copied!')">📋 Copy Chicago</button></div>
+      <div id="cite-content-bibtex" style="display:none;"><div class="cite-block" id="cite-bibtex-text" style="white-space:pre;"></div><button class="cite-copy-btn" onclick="copyText(document.getElementById('cite-bibtex-text').textContent,'BibTeX copied!')">📋 Copy BibTeX</button></div>
+      <div style="margin-top:20px;padding-top:20px;border-top:1px solid var(--border);">
+        <p style="font-size:13px;color:var(--text-muted);margin-bottom:12px;">Quick actions</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <button class="btn btn-primary btn-sm" onclick="alert('PDF reader coming soon.')">📖 Read Online</button>
+          <button class="btn btn-secondary btn-sm" id="cite-detail-btn">📄 Full Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>document.write(renderFooter('./'));</script>
+
+<script>
+let libCat = '';
+let currentCiteBook = null;
+
+function setPill(cat, btn) {
+  libCat = cat;
+  document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  libSearch();
+}
+
+function buildListItem(book) {
+  return `
+  <div class="book-list-item fade-up">
+    <div class="book-list-spine" style="background:${book.coverBg};">
+      <div class="book-list-spine-text">${book.title}</div>
+    </div>
+    <div class="book-list-body">
+      <div class="book-list-header">
+        <div>
+          <span class="book-cat" style="background:${book.catColor};color:${book.catText};margin-bottom:8px;display:inline-block;">${book.category}</span>
+          <div class="book-list-title">${book.title}</div>
+          <div class="book-list-subtitle">${book.subtitle}</div>
+        </div>
+        <span class="tag tag-sm" style="background:var(--green-light);color:var(--green);white-space:nowrap;">✓ Free Access</span>
+      </div>
+      <div class="book-list-meta">
+        <span class="book-list-meta-item">📅 ${book.year}</span>
+        <span class="book-list-meta-item">🔢 ${book.edition} ed.</span>
+        <span class="book-list-meta-item">📄 ${book.pages} pages</span>
+        <span class="book-list-meta-item">📖 ${book.chapters} chapters</span>
+        <span class="book-list-meta-item">🌐 ${book.language}</span>
+        <span class="book-list-meta-item">⏱ ${book.readingTime}</span>
+        <span class="book-list-meta-item">🏷 ISBN: ${book.isbn}</span>
+      </div>
+      <div class="book-list-desc">${book.desc}</div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;">
+        ${book.keywords.slice(0,5).map(k=>`<span class="tag tag-sm">${k}</span>`).join('')}
+      </div>
+      <div class="book-list-actions">
+        <button class="book-list-btn book-list-btn-read" onclick="alert('PDF reader coming soon. Contact Dr. Aggarawal for early access.')">📖 Read Online</button>
+        <button class="book-list-btn book-list-btn-cite" onclick="openCiteModal(${book.id})">📋 Cite</button>
+        <a href="books/${book.slug}.html" class="book-list-btn book-list-btn-detail">📄 Full Details →</a>
+      </div>
+    </div>
+  </div>`;
+}
+
+function libSearch() {
+  const q = document.getElementById('lib-search').value.toLowerCase();
+  const lang = document.getElementById('lib-lang').value;
+  const year = document.getElementById('lib-year').value;
+  const sort = document.getElementById('lib-sort').value;
+
+  let results = BOOKS.filter(b => {
+    const matchQ = !q || b.title.toLowerCase().includes(q) || b.subtitle.toLowerCase().includes(q) || b.isbn.includes(q) || b.keywords.some(k=>k.toLowerCase().includes(q)) || b.desc.toLowerCase().includes(q) || String(b.year).includes(q) || b.publisher.toLowerCase().includes(q);
+    const matchCat = !libCat || b.category.toLowerCase().includes(libCat.toLowerCase());
+    const matchLang = !lang || b.language === lang;
+    const matchYear = !year || String(b.year) === year;
+    return matchQ && matchCat && matchLang && matchYear;
+  });
+
+  if (sort === 'year-desc') results.sort((a,b)=>b.year-a.year);
+  else if (sort === 'year-asc') results.sort((a,b)=>a.year-b.year);
+  else if (sort === 'pages') results.sort((a,b)=>b.pages-a.pages);
+  else results.sort((a,b)=>a.title.localeCompare(b.title));
+
+  const container = document.getElementById('lib-results');
+  const noRes = document.getElementById('lib-no-results');
+  document.getElementById('lib-count').innerHTML = `<strong>${results.length}</strong> book${results.length!==1?'s':''} found`;
+
+  if (!results.length) {
+    container.innerHTML = '';
+    noRes.style.display = 'block';
+  } else {
+    noRes.style.display = 'none';
+    container.innerHTML = results.map(buildListItem).join('');
+    initScrollAnimations();
+  }
+}
+
+function clearLib() {
+  document.getElementById('lib-search').value = '';
+  document.getElementById('lib-lang').value = '';
+  document.getElementById('lib-year').value = '';
+  document.getElementById('lib-sort').value = 'title';
+  libCat = '';
+  document.querySelectorAll('.filter-pill').forEach((b,i)=>b.classList.toggle('active',i===0));
+  libSearch();
+}
+
+function openCiteModal(id) {
+  const b = BOOKS.find(b=>b.id===id);
+  if (!b) return;
+  currentCiteBook = b;
+  document.getElementById('cite-book-title').textContent = b.title;
+  document.getElementById('cite-apa-text').textContent = b.apa;
+  document.getElementById('cite-mla-text').textContent = b.mla;
+  document.getElementById('cite-chicago-text').textContent = b.chicago;
+  document.getElementById('cite-bibtex-text').textContent = b.bibtex;
+  document.getElementById('cite-detail-btn').onclick = ()=>{ window.location.href=`books/${b.slug}.html`; };
+  showCiteTab('apa', document.querySelector('.cite-tab'));
+  document.getElementById('cite-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCiteModal() {
+  document.getElementById('cite-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function showCiteTab(tab, btn) {
+  ['apa','mla','chicago','bibtex'].forEach(t=>{
+    document.getElementById(`cite-content-${t}`).style.display = t===tab?'block':'none';
+  });
+  document.querySelectorAll('.cite-tab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+document.getElementById('cite-modal').addEventListener('click', e=>{
+  if (e.target === document.getElementById('cite-modal')) closeCiteModal();
+});
+
+libSearch();
+</script>
+</body>
+</html>

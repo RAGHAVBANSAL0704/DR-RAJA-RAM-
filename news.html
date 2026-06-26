@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>News & Updates — Dr. Raja Ram Aggarawal</title>
+<meta name="description" content="Latest news, publications, events, seminars, workshops, and announcements from Dr. Raja Ram Aggarawal.">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.news-hero { background:linear-gradient(135deg,#fff 0%,#eef3fc 55%,#eaf5ee 100%); padding:72px 0 56px; border-bottom:1px solid var(--border); }
+.news-layout { display:grid; grid-template-columns:1fr 300px; gap:48px; align-items:start; }
+.news-filters { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:32px; }
+.news-filter-btn { padding:8px 18px; border-radius:100px; border:1.5px solid var(--border-strong); background:transparent; color:var(--text-secondary); font-size:13px; font-weight:500; cursor:pointer; transition:all var(--transition); font-family:inherit; }
+.news-filter-btn.active, .news-filter-btn:hover { background:var(--blue); color:white; border-color:var(--blue); }
+.news-card-full { background:var(--white); border-radius:var(--radius-lg); border:1px solid var(--border); padding:28px; margin-bottom:20px; transition:all var(--transition); }
+.news-card-full:hover { box-shadow:var(--shadow-md); border-color:var(--border-strong); }
+.news-card-header { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; margin-bottom:12px; flex-wrap:wrap; }
+.news-card-meta { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+.news-type-pill { display:inline-flex; align-items:center; gap:5px; padding:4px 12px; border-radius:100px; font-size:11px; font-weight:600; }
+.news-date-text { font-size:12px; color:var(--text-muted); }
+.news-card-title { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--navy); margin-bottom:10px; line-height:1.3; }
+.news-card-body { font-size:15px; color:var(--text-secondary); line-height:1.75; margin-bottom:16px; }
+.news-card-tags { display:flex; gap:6px; flex-wrap:wrap; }
+.sidebar-card { background:var(--white); border-radius:var(--radius-lg); border:1px solid var(--border); padding:24px; margin-bottom:20px; }
+.sidebar-card-title { font-size:14px; font-weight:600; color:var(--navy); margin-bottom:16px; display:flex; align-items:center; gap:8px; }
+.sidebar-item { padding:12px 0; border-bottom:1px solid var(--border); }
+.sidebar-item:last-child { border-bottom:none; }
+.sidebar-item-title { font-size:14px; font-weight:500; color:var(--navy); margin-bottom:4px; line-height:1.4; }
+.sidebar-item-sub { font-size:12px; color:var(--text-muted); }
+.upcoming-item { display:flex; gap:14px; align-items:flex-start; padding:14px 0; border-bottom:1px solid var(--border); }
+.upcoming-item:last-child { border-bottom:none; }
+.upcoming-date-box { background:var(--blue); color:white; border-radius:var(--radius-sm); padding:8px 12px; text-align:center; flex-shrink:0; min-width:52px; }
+.upcoming-date-day { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; line-height:1; display:block; }
+.upcoming-date-mon { font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; }
+.upcoming-title { font-size:14px; font-weight:500; color:var(--navy); margin-bottom:4px; }
+.upcoming-loc { font-size:12px; color:var(--text-muted); }
+@media(max-width:860px){ .news-layout { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<script src="js/main.js"></script>
+<script>document.write(renderRootNav('news'));</script>
+<main>
+
+<div class="news-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>News & Updates</span>
+    </div>
+    <p class="eyebrow">Latest from Dr. Aggarawal</p>
+    <h1 class="page-hero-title">News &amp; Announcements</h1>
+    <p class="page-hero-sub">Stay informed about new publications, upcoming seminars, academic events, workshops, and announcements.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="news-layout">
+      <!-- MAIN NEWS -->
+      <div>
+        <div class="news-filters" id="news-filters">
+          <button class="news-filter-btn active" onclick="filterNews('all',this)">All Updates</button>
+          <button class="news-filter-btn" onclick="filterNews('publication',this)">📚 Publications</button>
+          <button class="news-filter-btn" onclick="filterNews('seminar',this)">🎤 Seminars</button>
+          <button class="news-filter-btn" onclick="filterNews('workshop',this)">📝 Workshops</button>
+          <button class="news-filter-btn" onclick="filterNews('achievement',this)">🏆 Achievements</button>
+          <button class="news-filter-btn" onclick="filterNews('initiative',this)">🌱 Initiatives</button>
+        </div>
+        <div id="news-list"></div>
+      </div>
+
+      <!-- SIDEBAR -->
+      <div>
+        <div class="sidebar-card">
+          <p class="sidebar-card-title">📅 Upcoming Events</p>
+          <div class="upcoming-item">
+            <div class="upcoming-date-box"><span class="upcoming-date-day">15</span><span class="upcoming-date-mon">Aug</span></div>
+            <div><div class="upcoming-title">Academic Seminar on Educational Reforms</div><div class="upcoming-loc">🏛️ State Education Dept., Chandigarh</div></div>
+          </div>
+          <div class="upcoming-item">
+            <div class="upcoming-date-box" style="background:var(--gold);"><span class="upcoming-date-day">28</span><span class="upcoming-date-mon">Sep</span></div>
+            <div><div class="upcoming-title">Workshop on Research Methodology</div><div class="upcoming-loc">🏛️ Govt. College, Bhattu Kalan</div></div>
+          </div>
+          <div class="upcoming-item">
+            <div class="upcoming-date-box" style="background:var(--green);"><span class="upcoming-date-day">10</span><span class="upcoming-date-mon">Oct</span></div>
+            <div><div class="upcoming-title">Guest Lecture — Kurukshetra University</div><div class="upcoming-loc">🏛️ Kurukshetra, Haryana</div></div>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <p class="sidebar-card-title">📚 Recent Publications</p>
+          ${BOOKS.sort((a,b)=>b.year-a.year).slice(0,4).map(b=>`
+          <div class="sidebar-item">
+            <a href="books/${b.slug}.html" style="text-decoration:none;">
+              <div class="sidebar-item-title">${b.title}</div>
+              <div class="sidebar-item-sub">${b.year} · ${b.category}</div>
+            </a>
+          </div>`).join('')}
+          <div style="margin-top:14px;"><a href="books.html" class="btn btn-secondary btn-sm btn-full">View All Books →</a></div>
+        </div>
+
+        <div class="sidebar-card" style="background:var(--blue);border-color:var(--blue);">
+          <p style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:white;margin-bottom:8px;">📧 Stay Updated</p>
+          <p style="font-size:13px;color:rgba(255,255,255,0.8);margin-bottom:16px;line-height:1.6;">Get notified about new books, seminars, and announcements from Dr. Aggarawal.</p>
+          <input type="email" placeholder="your@email.com" style="width:100%;padding:10px 14px;border-radius:var(--radius-sm);border:none;font-size:14px;margin-bottom:10px;background:rgba(255,255,255,0.15);color:white;outline:none;" class="form-input">
+          <button class="btn btn-gold btn-sm btn-full" onclick="showToast('✅ Subscribed successfully!')">Subscribe</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<script>document.write(renderFooter('./'));</script>
+
+<script>
+const newsItems = [
+  { type:'publication', icon:'📚', typeBg:'#e8f0fc', typeColor:'#2563a8', typeLabel:'New Publication', date:'June 2024', title:'New Book on Indian History Now Available', body:'Dr. Aggarawal has released the latest volume in his acclaimed Indian History series. The book covers previously underrepresented regional histories alongside the major national narratives, and is now freely accessible in the digital library for students and researchers everywhere.', tags:['History','New Release','Free Access'] },
+  { type:'achievement', icon:'🏆', typeBg:'#fdf6e3', typeColor:'#b8860b', typeLabel:'Achievement', date:'May 2024', title:'Recognized for Outstanding Contribution to Hindi Academic Literature', body:'Dr. Raja Ram Aggarawal has been formally recognized by the Haryana Education Department for his extraordinary and sustained contribution to Hindi academic writing. Over three decades of publishing has produced a body of work that serves students across the state and beyond.', tags:['Award','Hindi Literature','Recognition'] },
+  { type:'seminar', icon:'🎤', typeBg:'#e8f5ee', typeColor:'#1a5c3a', typeLabel:'Upcoming Seminar', date:'August 2024', title:'Keynote at Academic Seminar on Educational Reforms', body:'Dr. Aggarawal has been invited to deliver the keynote address at a regional academic seminar on modern educational reforms organized by the State Education Department. He will present his research on effective pedagogical approaches for undergraduate teaching in government colleges.', tags:['Seminar','Education','Keynote'] },
+  { type:'initiative', icon:'🌱', typeBg:'#e8f5ee', typeColor:'#1a5c3a', typeLabel:'Initiative', date:'April 2024', title:'All Publications Now Freely Accessible Online', body:'In a landmark decision reflecting his deep commitment to open education, Dr. Aggarawal has made his entire catalogue of 30+ publications available online at absolutely no cost. This initiative removes all barriers to accessing quality scholarly content in Hindi for students across India and the world.', tags:['Open Education','Free Access','Digital Library'] },
+  { type:'workshop', icon:'📝', typeBg:'#f3e8ff', typeColor:'#5b21b6', typeLabel:'Workshop', date:'March 2024', title:'Research Methodology Workshop for Postgraduate Students', body:'Dr. Aggarawal recently concluded a highly successful two-day intensive workshop on research methodology and academic writing in social sciences. The workshop was attended by postgraduate students from multiple colleges in Fatehabad district and received outstanding feedback.', tags:['Workshop','Research','Postgraduate'] },
+  { type:'publication', icon:'📚', typeBg:'#e8f0fc', typeColor:'#2563a8', typeLabel:'Publication', date:'January 2024', title:'सामान्य ज्ञान कोश — 5th Edition Released', body:'The fifth and most comprehensive edition of Dr. Aggarawal\'s General Knowledge reference book has been published. This expanded edition includes updated current affairs, new chapters on science and technology, and enhanced coverage of international relations — ideal for competitive examination aspirants.', tags:['General Knowledge','5th Edition','Competitive Exams'] },
+  { type:'achievement', icon:'🏆', typeBg:'#fdf6e3', typeColor:'#b8860b', typeLabel:'Achievement', date:'December 2023', title:'30+ Publications Milestone Achieved', body:'Dr. Aggarawal has surpassed the remarkable milestone of 30 published books, cementing his position as one of the most prolific academic authors in the Haryana government college system. His works span seven subject areas and have guided thousands of students throughout their academic careers.', tags:['Milestone','Publications','Achievement'] },
+  { type:'initiative', icon:'🌱', typeBg:'#e8f5ee', typeColor:'#1a5c3a', typeLabel:'Initiative', date:'November 2023', title:'Youth Reading Initiative Launched in Rural Haryana', body:'Dr. Aggarawal has launched a dedicated reading programme for college students in rural Haryana, distributing free physical copies of selected books to college libraries and academically meritorious but financially disadvantaged students. The initiative aims to reach 1,000 students in its first year.', tags:['Youth','Rural Education','Initiative','Free Books'] },
+  { type:'seminar', icon:'🎤', typeBg:'#e8f5ee', typeColor:'#1a5c3a', typeLabel:'Conference', date:'October 2023', title:'Paper Presented at National History Conference', body:'Dr. Aggarawal presented an original research paper on the social history of Haryana during the colonial period at a national conference on Indian historiography. The paper drew on archival sources and oral history to shed new light on this underresearched area of regional history.', tags:['Conference','Research','History'] },
+];
+
+let currentFilter = 'all';
+
+function filterNews(type, btn) {
+  currentFilter = type;
+  document.querySelectorAll('.news-filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderNews();
+}
+
+function renderNews() {
+  const items = currentFilter === 'all' ? newsItems : newsItems.filter(n=>n.type===currentFilter);
+  document.getElementById('news-list').innerHTML = items.map(n=>`
+    <div class="news-card-full fade-up">
+      <div class="news-card-header">
+        <div class="news-card-meta">
+          <span class="news-type-pill" style="background:${n.typeBg};color:${n.typeColor};">${n.icon} ${n.typeLabel}</span>
+          <span class="news-date-text">📅 ${n.date}</span>
+        </div>
+      </div>
+      <h2 class="news-card-title">${n.title}</h2>
+      <p class="news-card-body">${n.body}</p>
+      <div class="news-card-tags">${n.tags.map(t=>`<span class="tag tag-sm">${t}</span>`).join('')}</div>
+    </div>`).join('') || `<div style="text-align:center;padding:48px;color:var(--text-muted);">No items in this category yet.</div>`;
+  initScrollAnimations();
+}
+
+renderNews();
+</script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Categories — Dr. Raja Ram Aggarawal</title>
+<meta name="description" content="Browse books by Dr. Raja Ram Aggarawal by subject — History, Education, Political Science, Religion, Self Help, Ideology, and General.">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.cat-hero { background: linear-gradient(135deg,#fff 0%,#eef3fc 55%,#eaf5ee 100%); padding:72px 0 56px; border-bottom:1px solid var(--border); }
+.cat-section { margin-bottom: 80px; scroll-margin-top: 80px; }
+.cat-section-header { display:flex; align-items:center; gap:20px; padding:28px; background:var(--white); border-radius:var(--radius-xl); border:1px solid var(--border); margin-bottom:28px; box-shadow:var(--shadow-sm); }
+.cat-section-icon { width:64px; height:64px; border-radius:16px; display:flex; align-items:center; justify-content:center; font-size:30px; flex-shrink:0; }
+.cat-section-info h2 { font-family:'Playfair Display',serif; font-size:26px; font-weight:700; color:var(--navy); margin-bottom:6px; }
+.cat-section-info p { font-size:15px; color:var(--text-secondary); line-height:1.6; }
+.cat-section-count { margin-left:auto; text-align:center; padding:14px 20px; border-radius:var(--radius); background:var(--cream); flex-shrink:0; }
+.cat-section-count-num { font-family:'Playfair Display',serif; font-size:28px; font-weight:700; color:var(--navy); display:block; }
+.cat-section-count-label { font-size:12px; color:var(--text-muted); }
+
+.side-nav { position:sticky; top:84px; background:var(--white); border-radius:var(--radius-lg); border:1px solid var(--border); padding:20px; box-shadow:var(--shadow-sm); }
+.side-nav-title { font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-muted); margin-bottom:14px; }
+.side-nav-link { display:flex; align-items:center; gap:10px; padding:9px 12px; border-radius:var(--radius-sm); color:var(--text-secondary); text-decoration:none; font-size:14px; font-weight:500; transition:all var(--transition); margin-bottom:2px; }
+.side-nav-link:hover, .side-nav-link.active { background:var(--blue-light); color:var(--blue); }
+
+.cat-layout { display:grid; grid-template-columns:220px 1fr; gap:40px; align-items:start; }
+.cat-topics { display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; margin-bottom:0; }
+.cat-topic { padding:6px 14px; border-radius:100px; background:var(--cream); border:1px solid var(--border); font-size:13px; color:var(--text-secondary); }
+
+@media(max-width:860px){ .cat-layout { grid-template-columns:1fr; } .side-nav { position:static; } }
+</style>
+</head>
+<body>
+<script src="js/main.js"></script>
+<script>document.write(renderRootNav('categories'));</script>
+<main>
+
+<div class="cat-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>Categories</span>
+    </div>
+    <p class="eyebrow">Browse by Subject</p>
+    <h1 class="page-hero-title">Book Categories</h1>
+    <p class="page-hero-sub">Seven major subject areas spanning history, education, political science, religion, self-help, ideology, and general knowledge — all freely accessible.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="cat-layout">
+
+      <!-- SIDEBAR NAV -->
+      <div>
+        <div class="side-nav">
+          <p class="side-nav-title">Jump to Category</p>
+          <a href="#history" class="side-nav-link">🏛️ History</a>
+          <a href="#education" class="side-nav-link">📖 Education</a>
+          <a href="#political-science" class="side-nav-link">⚖️ Political Science</a>
+          <a href="#religion" class="side-nav-link">🕉️ Religion & Spirituality</a>
+          <a href="#self-help" class="side-nav-link">🌟 Self Help</a>
+          <a href="#ideology" class="side-nav-link">💡 Ideology</a>
+          <a href="#general" class="side-nav-link">📝 General</a>
+          <div style="height:1px;background:var(--border);margin:16px 0;"></div>
+          <a href="books.html" class="btn btn-primary btn-sm btn-full">View All Books →</a>
+        </div>
+      </div>
+
+      <!-- MAIN CONTENT -->
+      <div id="categories-main"></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<script>document.write(renderFooter('./'));</script>
+
+<script>
+const catDefs = [
+  {
+    id: 'history', name: 'History', icon: '🏛️', color: '#e8f0fc',
+    desc: 'Comprehensive books covering Indian and world history — from ancient civilizations to modern independence movements, regional heritage, and historical analysis.',
+    topics: ['Ancient India','Medieval India','Modern India','World History','1857 Revolt','Freedom Movement','Mughal Empire','British Rule','Post-Independence','Historical Analysis','Civilizations','Regional History'],
+  },
+  {
+    id: 'education', name: 'Education', icon: '📖', color: '#fff3e0',
+    desc: 'Practical and theoretical works on pedagogy, teaching methodology, educational psychology, teacher training, and learning strategies for educators at all levels.',
+    topics: ['Pedagogy','Teaching Methods','Educational Psychology','Child Development','Learning Theories','Classroom Management','Assessment','Teacher Training','Special Education','Educational Technology','Curriculum','School Leadership'],
+  },
+  {
+    id: 'political-science', name: 'Political Science', icon: '⚖️', color: '#e8f5ee',
+    desc: 'Authoritative texts on Indian political thought, constitutional law, governance, public administration, democracy, sociology, and contemporary social issues.',
+    topics: ['Indian Constitution','Fundamental Rights','Parliament','Judiciary','Democracy','Federalism','Electoral System','Public Policy','Local Government','Sociology','Social Issues','Good Governance'],
+  },
+  {
+    id: 'religion', name: 'Religion & Spirituality', icon: '🕉️', color: '#fce8e8',
+    desc: 'Thoughtful exploration of Indian philosophical traditions, religious thought, ethical systems, cultural heritage, values, and the spiritual foundations of Indian civilization.',
+    topics: ['Indian Philosophy','Vedic Thought','Buddhism','Jainism','Bhakti Movement','Sufism','Vedanta','Indian Ethics','Cultural Heritage','Moral Education','Spiritual Growth','Indian Values'],
+  },
+  {
+    id: 'self-help', name: 'Self Help', icon: '🌟', color: '#f3e8ff',
+    desc: 'Inspiring guides for students and young professionals on discovering potential, setting goals, building discipline, leadership development, and achieving lasting personal success.',
+    topics: ['Motivation','Goal Setting','Leadership','Time Management','Positive Thinking','Communication','Life Skills','Youth Development','Personal Growth','Resilience','Emotional Intelligence','Career Success'],
+  },
+  {
+    id: 'ideology', name: 'Ideology', icon: '💡', color: '#e8f0fc',
+    desc: 'Intellectual exploration of Indian national thought, political ideologies, social reform movements, and the thinkers who have shaped the cultural and political identity of modern India.',
+    topics: ['Indian Nationalism','Social Reform','Gandhian Thought','Ambedkar','Nehru','Political Thought','Cultural Studies','Social Movements','National Identity','Intellectual History'],
+  },
+  {
+    id: 'general', name: 'General', icon: '📝', color: '#e8f5ee',
+    desc: 'General awareness reference books, essays, current affairs guides, and comprehensive resources ideal for competitive examination preparation and general reading.',
+    topics: ['General Knowledge','Current Affairs','Indian Geography','Science & Technology','Sports','Arts & Culture','Environment','International Relations','Competitive Exams','UPSC Preparation','Reference Books'],
+  },
+];
+
+function buildCatSection(cat) {
+  const books = BOOKS.filter(b => b.category.toLowerCase().includes(cat.name.toLowerCase()) || b.category === cat.name);
+  return `
+  <div class="cat-section fade-up" id="${cat.id}">
+    <div class="cat-section-header">
+      <div class="cat-section-icon" style="background:${cat.color};">${cat.icon}</div>
+      <div class="cat-section-info">
+        <h2>${cat.name}</h2>
+        <p>${cat.desc}</p>
+        <div class="cat-topics">${cat.topics.map(t=>`<span class="cat-topic">${t}</span>`).join('')}</div>
+      </div>
+      <div class="cat-section-count">
+        <span class="cat-section-count-num">${books.length}</span>
+        <span class="cat-section-count-label">Books</span>
+      </div>
+    </div>
+    ${books.length ? `<div class="grid-auto">${books.map(b=>buildBookCard(b,true)).join('')}</div>` : `
+    <div style="text-align:center;padding:48px;background:var(--white);border-radius:var(--radius-lg);border:1px solid var(--border);">
+      <p style="font-size:15px;color:var(--text-muted);">More books in this category coming soon.</p>
+      <a href="contact.html" class="btn btn-secondary" style="margin-top:16px;">Inquire →</a>
+    </div>`}
+    <div style="text-align:right;margin-top:16px;">
+      <a href="books.html?cat=${encodeURIComponent(cat.name)}" class="btn btn-secondary btn-sm">View All ${cat.name} Books →</a>
+    </div>
+  </div>`;
+}
+
+document.getElementById('categories-main').innerHTML = catDefs.map(buildCatSection).join('');
+initScrollAnimations();
+
+// Highlight active sidebar link on scroll
+const sections = document.querySelectorAll('.cat-section');
+const sideLinks = document.querySelectorAll('.side-nav-link');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      sideLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#'+e.target.id));
+    }
+  });
+}, { threshold: 0.2 });
+sections.forEach(s => io.observe(s));
+</script>
+</body>
+</html>
